@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+    <head>
+        <title>Razorpay Demo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div id='razorpay'>
+        <form id='payment_form'></form>
+        </div>
+		{{post_data}}
+        <script>
+        	var payment_id='{{ post_data.get('id','Hi') }}'
+        	var order_id='{{ post_data.get('order_id','') }}'
+            msg = "Show order status{payment_id:"+payment_id+"|"+order_id+", api_name:razorpay_payment_id}"
+            if (window.parent) {
+                    console.log("closing")
+                    console.log(msg)
+                window.parent.postMessage(`http://haptik-webview//perform-action?action=close&message=${msg}&message_type=0`, '*');
+                }
+        </script>
+
+</body>
+</html>

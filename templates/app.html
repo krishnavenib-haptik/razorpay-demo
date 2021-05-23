@@ -6,17 +6,16 @@
     <form action="charge" method="POST">
         <script
             src="https://checkout.razorpay.com/v1/checkout.js"
-            data-key="rzp_test_WyK93y9mvps7SN"
-            data-amount="5100"
-            data-name="Daft Punk"
-            data-description="Purchase Description"
+            data-key="rzp_test_67e1H1DVG3Sv7m"
+            data-amount={{post_data.get('amount','1000')}}
+            data-name={{post_data.get('product_name','Chips')}}
+            data-description={{post_data.get('description','Happiness')}}
             data-image="vk.jpg"
             data-netbanking="true"
-            data-description="Tron Legacy"
-            data-prefill.name="Harshil Mathur"
-            data-prefill.email="harshil@razorpay.com"
-            data-prefill.contact="9999999999"
-            data-notes.shopping_order_id="21">
+            data-prefill.name={{post_data.get('username','10')}}
+            data-prefill.email={{post_data.get('email','10')}}
+            data-prefill.contact={{post_data.get('contact','10')}}
+            data-notes.shopping_order_id={{post_data.get('shopping_order_id','10')}}>
         </script>
         <input type="hidden" name="shopping_order_id" value="21">
     </form>
